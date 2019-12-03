@@ -19,18 +19,24 @@
 <div id="toptitle">
 <h1>Advanced Machine Learning Final Project </h1>
 </div>
-<h2>Choosen Paper Introduction</h2>
-<p>I am a Ph.D. student in the <a href="https://www.me.vt.edu/" target="blank">Department of Mechanical Engineering</a> at <a href="https://vt.edu/" target="blank">Virginia Tech</a>. Lets write down the choosen paper introduction with background text and also add the reference of this paper.</p>
+<h2>Paper Introduction & Summarization</h2>
+<p>Nowadays lots of neural networks, including deep neural network, have become increasingly effective at many difficult machine-learning tasks. However, there are also lots of researchs which shows the vulnerability of the neural network from attack using advarsarial example [4]. The appearance of the algorithm that finds the advarsarial examples, attack algorithm, has inspired research on how to harden neural networks against these kinds of attacks. Defensive distillation [5] is one recent defense algorithm proposed for hardening neural networks against adversarial examples. The proposed defensive distillation can be applied easily to any feed-forward neural network, and defeats existing attack algorithms and reduces their success probability from 95% to 0.5% with ease. This paper [1] proposed 3 different new attack algorithm using L_0, L_2, L_inf distances metrics. This paper first shows the excellence of the proposed attack comparing with the previous approaches. Jacobian based Saliency Map Attack (JSMA) [6] is used as a comparing set using L_0 distance as a cost function of optimizer. Deepfool [7] is also introduced as a comparing set of attack technique optimized for the L_2 distance metric. Fast graident sign method [8] is used as a comparing set of optimizer using L_inf as a distance metric. </p>
 
-<h2>Summarization of the Paper Result</h2>
-<ul>
-<li><p>Ph.D. Student in Mechanical Engineering, Virginia Tech</p>
-</li>
-<li><p>M.S. in Transdisciplinary Studies, Seoul National University, 2017</p>
-</li>
-<li><p>B.S. in Mechanical Engineering, Seoul National University, 2014</p>
-</li>
-</ul>
+<table class="imgtable"><tr><td>
+<img src="photo/comparison.png" alt="alt text" width="750px" height="200px" /></td>
+</tr></table>
+
+<p> This paper also applied these attacks to defensive distillation and discover that distillation provides little security benefit over un-distilled networks when applying the propsed attacks. In the original work, increasing the temperature was found to consistently reduce attack success rate [1]. On MNIST, this goes from a 91% success rate at T=1 to a 24% success rate for T=5 and finally 0.5% success at T=100. Interestingly, the proposed attack did not degrade even though the distillation temperature increases from t=1 to t=100. The success rate is described in the table below. </p>
+
+<table class="imgtable"><tr><td>
+<img src="photo/distil1.png" alt="alt text" width="750px" height="150px" /></td>
+</tr></table>
+
+<p> Furthermore, the mean advarsarial distance does not change even though the distillation temperature becomes higher. Figure below shows that proposed attacks works in a good mannor even though the distillation temperature becomes higher which effectively degrade the performance of the previous attack approaches.</p>
+
+<table class="imgtable"><tr><td>
+<img src="photo/distil2.png" alt="alt text" width="280px" height="250px" /></td>
+</tr></table>
 
 <h2>Measurements and Analysis When Attempting the origin Result</h2>
 <ul>
@@ -43,13 +49,27 @@
 <li><p>Cooperative Robotics</p>
 </li>
 </ul>
-<p><a href="research.html">Find out more about my research</a>.</p>
+
 
 <div class="infoblock">
 <div class="blockcontent">
 <h2>Reference</h2>
 <ul>
-<!--<li><p><b>Jan &lsquo;19</b>: Two papers accepted at <a href="https://www.icra2019.org/" target="blank">ICRA 2019</a>.</p>-->
+<li><p><b>[1] </b>Carlini, Nicholas, and David Wagner. "Towards evaluating the robustness of neural networks." 2017 IEEE Symposium on Security and Privacy (SP). IEEE, 2017.</p>
+</li>
+<li><p><b>[2] </b>Athalye, Anish, Nicholas Carlini, and David Wagner. "Obfuscated gradients give a false sense of security: Circumventing defenses to adversarial examples." arXiv preprint arXiv:1802.00420 (2018).</p>
+</li>
+<li><p><b>[3] </b>Vilares, David, and Carlos Gómez-Rodríguez. "Harry Potter and the Action Prediction Challenge from Natural Language." arXiv preprint arXiv:1905.11037 (2019).</p>
+</li>
+<li><p><b>[4] </b>Szegedy, Christian, et al. "Intriguing properties of neural networks." arXiv preprint arXiv:1312.6199 (2013).</p>
+</li>
+<li><p><b>[5] </b>Papernot, Nicolas, et al. "Distillation as a defense to adversarial perturbations against deep neural networks." 2016 IEEE Symposium on Security and Privacy (SP). IEEE, 2016.</p>
+</li>
+<li><p><b>[6] </b>Papernot, Nicolas, et al. "The limitations of deep learning in adversarial settings." 2016 IEEE European Symposium on Security and Privacy (EuroS&P). IEEE, 2016.</p>
+</li>
+<li><p><b>[7] </b>Moosavi-Dezfooli, Seyed-Mohsen, Alhussein Fawzi, and Pascal Frossard. "Deepfool: a simple and accurate method to fool deep neural networks." Proceedings of the IEEE conference on computer vision and pattern recognition. 2016.<p>
+</li>
+<li><p><b>[8] </b>Goodfellow, Ian J., Jonathon Shlens, and Christian Szegedy. "Explaining and harnessing adversarial examples." arXiv preprint arXiv:1412.6572 (2014).<p>
 </li>
 </ul>
 </div></div>
