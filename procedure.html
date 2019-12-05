@@ -26,28 +26,56 @@ MathJax.Hub.Config({
 </td>
 <td id="layout-content">
 <div id="toptitle">
-<h1>Advanced Machine Learning Final Project</h1>
+<h1>Advanced Machine Learning Final Project - Jeeseop Kim</h1>
 </div>
 
 <h2>Procedure to Reproduce</h2>
-<p>Let's describe how I reproduced the result 
-</p>
+<p> Prerequisites </p>
+<ul>
+<li><p>Computer: Jetson TX2</p></li>
+<li><p>Python version: 3.6.8 (used python virtual environment)</p></li>
+<li><p>pillow version: 6.2.1</p></li>
+<li><p>scipy version: 1.2.2</p></li>
+<li><p>numpy version: 1.16.1</p></li>
+<li><p>keras version: 2.3.1</p></li>
+<li><p>h5py version: 2.9.0</p></li>
+<li><p>tensorflow-gpu version: 1.14.0+nv19.10</p> </li>
+</ul>
 
+<p> System Setup </p>
+<ul>
+	<li><p>Install tensorflow-gpu in Jetson TX2 with python virtual environment:</p>
+	    <p>https://docs.nvidia.com/deeplearning/frameworks/install-tf-jetson-platform/index.html</p></li>
+	<li><p>Install the required packages described above with same version</p></li>
+</ul>
+
+<p> Run the Code </p>
+<ul>
+	<li><p>Clone the code from <b>repo[3]</b> (original code from <b>repo[1]</b>, modified by <b>Jeeseop(myself)</b>)</p></li>
+	<li><p>execute: <b>$ python3 tran_models.py</b></p>
+	    <p>- This portion will train the MNIST, and CIFAR-10 with and without Defensive distillation [5]</p>
+	    <p>- I used distillation temperature: 0, 20, 40, 60, 80, 100 to make trained data </p>
+	    <p>- Generated data files can be used in <b>test_attack.py</b></li>
+	<li><p>execute: <b>$ python3 test_attack.py</b></p>
+	    <p>- This portion will show the</p> 
+	    <p>--- original label of the input,</p> 
+	    <p>--- target label that attack targeted,</p> 
+	    <p>--- classification result with attacked input, and</p>
+	    <p>-- distortion made by attack</p>
+	    <p>- Attack is successful if the classification result shows the same target label that attack targeted</p>
+	    <p>- Attack is useful if the distortion value is regulated as small value in every case </p></li>
+</ul>
 <h2>Opensource Code link that I used</h2>
 <br>
 <ul>
-<li><b> [1] </b><p>https://github.com/carlini/nn_robust_attacks</p>
-</li>
-<li><b> [2] </b><p>https://github.com/anishathalye/obfuscated-gradients</p>
-</li>
+	<li><p><b> repo[1] </b>https://github.com/carlini/nn_robust_attacks</p></li>
+	<li><p><b> repo[2] </b>https://github.com/anishathalye/obfuscated-gradients</p></li>
 </ul>
 
 <h2>Code Modified & Tested by me</h2>
 <br>
 <ul>
-<li><b> [3] </b> <p>https://github.com/jeeseop/nn_robust_attacks/tree/ml_finalproj
-</p>
-</li>
+	<li><p><b> repo[3] </b>https://github.com/jeeseop/nn_robust_attacks/tree/ml_finalproj</p></li>
 </ul>
 
 
