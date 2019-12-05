@@ -51,11 +51,17 @@
 </li>
 <li><p>Success rate of the targeted attack and untargeted attack are both described with changing the distillation temperature</p>
 </li>
-<li><p>Paper described that they have 100% success rate even though the distillation temperature is applied [1]. But I could figure out that 100% success rate is only for untargeted attack</p>
-</li>
-<li><p>Fourth, trained CIFAR using distillation defense algorithm to make the security higher, and applied advarsarial example to see the effectiveness of the proposed attack algorithm.</p>
+<li><p>Distortion value of each case are described with changing the distillation temperature</p>
 </li>
 </ul>
+
+
+<h2>Discussion</h2>
+<p> The paper [1] described that their algorithm works perfectly for every distillation temperature and every dataset including MNIST, and CIFAR-10. But when I tried to reproduce, there are some failure for each cases. I sampled the data to save time, and this could be a major reason of the data difference between paper and mine. If the reproducing is done for every dataset, success rate could get closer to 100%.</p>
+<br>
+<p> As described in the paper [1], there is no big difference between the attack success rate of targeted attack and untargeted attack. In real, my experiment shows same results between the success rate of targeted attack and untargeted attack. But the paper's description shows that their should be a little bit of difference. In this part, I am not sure if it is possible to blame sampling method. </p>
+<br>
+<p> The distortion value for each distillation temperature shows no big change. As the temperature becomes higher, the distortion value also changed little bit but value itself is small enough to think that there is no change depending on the increase of the distillation temperature. Value itself shows little difference between the one described in the paper but the difference between them are also small enough to be thought as a same value. I also suspect that small data sample number could be the reason of the outlying distortion value result.</p>
 
 
 <div class="infoblock">
