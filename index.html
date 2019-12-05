@@ -40,13 +40,18 @@
 
 <p>In short, this paper proposed efficient attack algorithms which are using L_0, L_2, and L_inf distance metric as a cost function of the optimizer, and showed that proposed algorithms defeat defensive distillation. Also this paper mention that their attacks more generally can be used to evaluate the efficacy of potential defenses. </p>
 
-<h2>Measurements and Analysis When Attempting the origin Result</h2>
+<h2>Measurements and Analysis When Attempting the original Result</h2>
+
+<table class="imgtable"><tr><td>
+<img src="photo/distil2.png" alt="alt text" width="280px" height="250px" /></td>
+</tr></table>
+
 <ul>
-<li><p>First trained MNIST and used the proposed advarsarial example to check if it can really distort the image to make a target label.</p>
+<li><p>Attack success rate is described in the above table</p>
 </li>
-<li><p>Second, trained CIFAR and used the proposed advarsarial example to chekc if it can really distort the image to make a target label.</p>
+<li><p>Success rate of the targeted attack and untargeted attack are both described with changing the distillation temperature</p>
 </li>
-<li><p>Third, trained MNIST using distillation defense algorithm to make the security higher, and applied advarsarial example to see the effectiveness of the proposed attack algorithm</p>
+<li><p>Paper described that they have 100% success rate even though the distillation temperature is applied [1]. But I could figure out that 100% success rate is only for untargeted attack</p>
 </li>
 <li><p>Fourth, trained CIFAR using distillation defense algorithm to make the security higher, and applied advarsarial example to see the effectiveness of the proposed attack algorithm.</p>
 </li>
