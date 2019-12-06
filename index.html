@@ -47,7 +47,7 @@
 </tr></table>
 
 <table class="imgtable"><tr><td>
-<img src="photo/l2result.png" alt="alt text" width="700px" height="220px" /></td>
+<img src="photo/l0result.png" alt="alt text" width="700px" height="220px" /></td>
 </tr></table>
 
 <ul>
@@ -61,15 +61,18 @@
 
 
 <h2>Discussion</h2>
-<p> The paper [1] described that their algorithm works perfectly for distillation temperature(especially 100) applied training and every dataset including MNIST, and CIFAR-10. But when I tried to reproduce, there are some failure for each cases. I sampled the data to save time, and this could be a major reason of the success rate difference between paper and mine. If the reproducing is done for every dataset, success rate could get closer to 100%. </p>
-<p>On the other hand, it is possible that the paper used the result from very small sample group. I also could get 100% success rate in a several small group of samples but if I expand the size 100% is no more achievable.</p>
-<br>
-<p>Because of the similar reason that I mentioned above, success rate using L_0 attack reachs almost 100% while L_2 attack is around 92%. I used small sample group when testing L_0 attack because L_0 attack takes much more time than L_2 attack if I use the same sample size. L_0 attack takes 5 times longer than L_2 attack with same sample size. For this reason, I used smaller sample group when testing L_0 attack, and this became the reason of better success rate.</p>
+<p> The paper [1] described that their algorithm works perfectly for distillation temperature(especially 100) applied training and every dataset including MNIST, and CIFAR-10. During reproducing the result, I sampled the data to save time, and still I can see the 100% success rate.</p>
 
-<br>
-<p> As described in the paper [1], there is no big difference between the attack success rate of targeted attack and untargeted attack. In real, my experiment shows same results between the success rate of targeted attack and untargeted attack. But the paper's description shows that their should be a little bit of difference except distillation temperature = 100. In this case, parameter setup in model training and attack generation could induces the result under where both success rate could be same. </p>
-<br>
-<p> The distortion value for each distillation temperature shows no big change. As the temperature becomes higher, the distortion value also changed little bit but value itself is small enough to think that there is no change depending on the increase of the distillation temperature. Value itself shows little difference between the one described in the paper but the difference between them are also small enough to be thought as a same value. I also suspect that small data sample number could be the reason of the outlying distortion value result.</p>
+
+<p>I used small sample group when testing L_0 attack because L_0 attack takes much more time than L_2 attack if I use the same sample size. L_0 attack takes around 5 times longer than L_2 attack with same sample size. Even though I made the sample size smaller, the success rates that I reproduced are all 100% as we can see in the original paper [1].</p>
+
+<p>But I could see the mean distortion value difference between L_0 attack and L_2 attack which follows the trend described in original paper. Actually, the mean distortion value difference betwen L_0 attack and L_2 attack doesn't describe in a same way how the advarsarial example is far from the original dataset. L_0 attack's distortion corresponds to the number of pixel that have been altered in an image, while L_2 attack's distortion measures the stand Euclidean distance between the original data and attacked data. Still the mean distortion value trend between L_0 attack and L_2 attack could be one of the characteristic of the proposed attack algorithm, and reproduced result shows good following of this trend.</p>
+
+
+<p> As described in the paper [1], there is no big difference between the attack success rate of targeted attack and untargeted attack. In real, my experiment shows same results between the success rate of targeted attack and untargeted attack. But the paper's description shows that their should be a little bit of difference except distillation temperature = 100. In the reproduced case, parameter setup in model training and attack generation could be the reason of the result that I got during reproducing.</p>
+
+
+<p> The distortion value for each distillation temperature shows no big change. As the temperature becomes higher, the distortion value also changed little bit and changed value itself is small enough to think that there is no change depending on the increase of the distillation temperature. Value shows a little difference between the one described in the paper and the one reproduced. I suspect that small data sample that I used could be the reason of the difference between the result from original paper and reproduced.</p>
 
 
 <div class="infoblock">
