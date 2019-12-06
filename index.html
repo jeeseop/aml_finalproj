@@ -17,39 +17,49 @@
 </td>
 <td id="layout-content">
 <div id="toptitle">
-<h1>Advanced Machine Learning Final Project </h1>
+<h1>Advanced Machine Learning Final Project - Jeeseop Kim </h1>
 </div>
 <h2>Paper Introduction & Summarization</h2>
 <p>Nowadays lots of neural networks, including deep neural network, have become increasingly effective at many difficult machine-learning tasks. One of the major parts of this application is natural language processing. In this field, every natural language source becomes the dataset that could be learned. In one research, Harry Potter book became the dataset of the natural language processing, and they proposed the convolutional neural network for predicting the magic spell which can happen right after the behavior description in the book [3]. However, there are also lots of researchs which shows the vulnerability of the neural network from attack using advarsarial example [4]. The development of the algorithm that finds the advarsarial examples  has inspired research on how to harden neural networks against these kinds of attacks. Defense algorithm also has been proposed and evaluated in lots of researches. Obfuscated Gradients [2] is one of the characteristic which could be in defense algorithm which can gives the false sense of security. In this paper [2], both defense causing obfuscated gradients and advarsarial example that can circumvent the obfuscated gradient in the defense are examined and developed respectively. Defensive distillation [5] is one recent defense algorithm proposed for hardening neural networks against adversarial examples. The proposed defensive distillation can be applied easily to any feed-forward neural network, and defeats existing attack algorithms and reduces their success probability from 95% to 0.5% with ease. Based on this defense algorithm, this paper [1] proposed 3 different new attack algorithm using L_0, L_2, L_inf distances metrics. This paper first shows the excellence of the proposed attack comparing with the previous approaches. Jacobian based Saliency Map Attack (JSMA) [6] is used as a comparing set using L_0 distance as a cost function of optimizer. Deepfool [7] is also introduced as a comparing set of attack technique optimized for the L_2 distance metric. Fast graident sign method [8] is used as a comparing set of optimizer using L_inf as a distance metric. </p>
 
-<table class="imgtable"><tr><td>
+<table class="imgtable">
+<caption align = "bottom">Comparison of the targeted attack to previous work using generated MNIST and CIFAR models. When success rate is not 100%, the mean is only over successes [1]</caption><tr><td>
 <img src="photo/comparison.png" alt="alt text" width="750px" height="200px" /></td>
 </tr></table>
 
+<br>
 <p> This paper also applied these attacks to defensive distillation and discover that distillation provides little security benefit over un-distilled networks when applying the propsed attacks. In the original work, increasing the temperature was found to consistently reduce attack success rate [1]. On MNIST, this goes from a 91% success rate at T=1 to a 24% success rate for T=5 and finally 0.5% success at T=100. Interestingly, the proposed attack did not degrade even though the distillation temperature increases from t=1 to t=100. The success rate is described in the table below. </p>
 
-<table class="imgtable"><tr><td>
+<table class="imgtable" >
+<caption align = "bottom">Comparison of proposed attacks with defensively distilled networks. Compared to the above table for undistilled networks [1]</caption><tr><td>
 <img src="photo/distil1.png" alt="alt text" width="750px" height="150px" /></td>
 </tr></table>
 
+<br>
 <p> Furthermore, the mean advarsarial distance does not change even though the distillation temperature becomes higher. Figure below shows that proposed attacks works in a good mannor even though the distillation temperature becomes higher which effectively degrade the performance of the previous attack approaches.</p>
 
-<table class="imgtable"><tr><td>
+<table class="imgtable"align="center">
+<caption align = "bottom">Mean distance to targeted(with random target) adversarial examples for different distillation temperatures on MNIST [1]</caption><tr><td>
 <img src="photo/distil2.png" alt="alt text" width="280px" height="250px" /></td>
 </tr></table>
 
+<br>
 <p>In short, this paper proposed efficient attack algorithms which are using L_0, L_2, and L_inf distance metric as a cost function of the optimizer, and showed that proposed algorithms defeat defensive distillation. Also this paper mention that their attacks more generally can be used to evaluate the efficacy of potential defenses. </p>
 
 <h2>Measurements and Analysis When Attempting the original Result</h2>
 
-<table class="imgtable"><tr><td>
+<table class="imgtable">
+<caption align = "bottom"> Attack with L_2 distance success rate table from the reproduced result</caption><tr><td>
 <img src="photo/l2result.png" alt="alt text" width="700px" height="220px" /></td>
 </tr></table>
 
-<table class="imgtable"><tr><td>
+<br>
+<table class="imgtable">
+<caption align = "bottom"> Attack with L_0 distance success rate table from the reproduced result</caption><tr><td>
 <img src="photo/l0result.png" alt="alt text" width="700px" height="220px" /></td>
 </tr></table>
 
+<br>
 <ul>
 <li><p>Attack success rate is described in the above table</p>
 </li>
